@@ -12,4 +12,8 @@ WORKDIR /usr/src/backend
 COPY --from=builder /usr/src/backend/package*.json ./
 RUN  npm set strict-ssl false && npm install --only=production
 COPY --from=builder /usr/src/backend/dist ./dist
+#added by me
+#CMD [ "npm", "run", "start" ]
+EXPOSE 3000
+#original
 CMD ["node", "dist/main"]
