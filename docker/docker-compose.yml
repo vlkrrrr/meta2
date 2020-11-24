@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-    main: 
+    nestjs: 
         container_name: main
         build:
             context: .
@@ -10,4 +10,6 @@ services:
             - .:/usr/src/app
             - /usr/src/app/node_modules
         ports:
-            -${SERVER_PORT}
+            -${SERVER_PORT}:${SERVER_PORT}
+    caddy:
+    postgres:
